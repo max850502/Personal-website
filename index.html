@@ -1,0 +1,285 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+const IconBadge = ({ label }) => (
+  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl border border-cyan-300/30 bg-cyan-300/10 text-sm font-semibold text-cyan-200">
+    {label}
+  </div>
+);
+
+const SectionTitle = ({ children }) => (
+  <h2 className="mb-6 text-2xl font-bold tracking-tight text-slate-100 md:text-3xl">
+    {children}
+  </h2>
+);
+
+const DetailBlock = ({ title, children }) => (
+  <div>
+    <p className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">{title}</p>
+    <div className="leading-7 text-slate-300">{children}</div>
+  </div>
+);
+
+export default function PersonalWebsite() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const contactLinks = {
+    googleScholar: "https://scholar.google.com/citations?user=YOpk9hUAAAAJ&hl=zh-TW",
+    linkedin: "https://www.linkedin.com/in/yuchuanhao/",
+    personalEmail: "max850502@gmail.com",
+    stanfordEmail: "maxhao@stanford.edu",
+    workEmail: "ychaoc@tsmc.com",
+  };
+
+  const publications = [
+    "Thermal stability and microstructural evolution of nanotwinned Ag thin films",
+    "Improved performance of polyaniline/reduced-graphene-oxide supercapacitor using atmospheric-pressure-plasma-jet surface treatment",
+    "Advanced metallic thin films and interface engineering for electronic materials applications",
+  ];
+
+  const expertise = [
+    "Semiconductor testing & reliability",
+    "Probe card design and validation",
+    "Materials/interface engineering",
+    "Nanotwinned metallic thin films",
+    "Plasma-enabled surface modification",
+    "Python-based data analysis and engineering tools",
+  ];
+
+  const projects = [
+    {
+      id: "probe-card-optimization",
+      title: "Probe Card Optimization Tool",
+      category: "Semiconductor Testing · Data Engineering",
+      desc: "Improved probe yield by 70% using data-driven compensation modeling.",
+      challenge: "Advanced wafer probing requires tight control of contact stability, probe mark quality, touchdown accuracy, and product-specific card behavior. Manual tuning can be time-consuming and difficult to scale across multiple product lines.",
+      approach: [
+        "Built a Python-based analysis workflow for probe-card and wafer-level test data.",
+        "Used historical test behavior to identify contact-depth and alignment-related patterns.",
+        "Connected engineering parameters with practical probe-card readiness decisions.",
+      ],
+      impact: [
+        "Improved probe yield by approximately 70% in the reported deployment context.",
+        "Supported faster decision-making for probe-card tuning and validation.",
+        "Demonstrated the value of combining semiconductor domain knowledge with data-driven engineering.",
+      ],
+      skills: ["Python", "Semiconductor testing", "Yield analysis", "Probe card", "Reliability engineering"],
+    },
+    {
+      id: "nanotwinned-ag",
+      title: "Nanotwinned Ag Thin Film Study",
+      category: "Materials Science · Thin Films",
+      desc: "Studied thermal stability and grain-boundary migration mechanisms in nanotwinned Ag thin films.",
+      challenge: "Nanotwinned metallic thin films offer attractive electrical and mechanical properties, but their microstructural stability under annealing is critical for practical device integration.",
+      approach: [
+        "Analyzed annealing-induced microstructural evolution in highly oriented nanotwinned Ag films.",
+        "Studied grain-boundary migration, interfacial-layer evolution, and texture stability.",
+        "Integrated SEM/FIB, XRD, and microscopy-based interpretation to connect structure with property evolution.",
+      ],
+      impact: [
+        "Clarified the role of downward grain growth in consuming the nanocrystalline interfacial layer.",
+        "Provided mechanistic insight into thermal stability of nanotwinned metallic films.",
+        "Supported broader research directions in advanced interconnects and electronic materials.",
+      ],
+      skills: ["Nanotwinned metals", "Thin films", "XRD", "SEM/FIB", "Annealing", "Microstructure"],
+    },
+    {
+      id: "cte-compensation",
+      title: "CTE Compensation Model",
+      category: "Semiconductor Manufacturing · Thermal-Mechanical Modeling",
+      desc: "Developed thermal deformation correction system for wafer probing.",
+      challenge: "Temperature changes during probing can cause mechanical deformation and needle-pad offset, affecting contact quality and wafer-level test stability.",
+      approach: [
+        "Developed a compensation model based on coefficient of thermal expansion behavior.",
+        "Translated thermal-mechanical understanding into practical offset correction rules.",
+        "Created an engineering workflow that could be applied across multiple product lines.",
+      ],
+      impact: [
+        "Reduced probing instability related to thermal deformation.",
+        "Improved engineering scalability across high-volume semiconductor testing environments.",
+        "Connected materials/mechanics knowledge with practical manufacturing optimization.",
+      ],
+      skills: ["CTE", "Thermal deformation", "Probe alignment", "Manufacturing optimization", "Python"],
+    },
+  ];
+
+  const news = [
+    { date: "2026", content: "Admitted to Stanford EE (HCP program)." },
+    { date: "2026", content: "Submitted paper to Surface & Coatings Technology." },
+  ];
+
+  const blog = [
+    { title: "Why I chose Stanford EE", type: "Personal", preview: "Reflections on career transition and long-term vision." },
+    { title: "Balancing career and family", type: "Family", preview: "Thoughts on life between Taiwan and the Bay Area." },
+  ];
+
+  if (!publications.length) throw new Error("Publications missing");
+  if (!expertise.length) throw new Error("Expertise missing");
+  if (!projects.length) throw new Error("Projects missing");
+  if (projects.some((project) => !project.id || !project.title || !project.challenge || !project.approach || !project.impact)) {
+    throw new Error("Each project must include id, title, challenge, approach, and impact.");
+  }
+
+  const activeProject = selectedProject || projects[0];
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100">
+      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8">
+        <div className="font-semibold tracking-wide">Yu-Chuan Hao</div>
+        <nav className="hidden gap-6 text-sm text-slate-300 md:flex">
+          <a href="#about" className="hover:text-white">About</a>
+          <a href="#news" className="hover:text-white">News</a>
+          <a href="#projects" className="hover:text-white">Projects</a>
+          <a href="#blog" className="hover:text-white">Blog</a>
+          <a href="#contact" className="hover:text-white">Contact</a>
+        </nav>
+      </header>
+
+      <main className="mx-auto max-w-6xl px-6 pb-20">
+        <section id="about" className="py-12">
+          <SectionTitle>About</SectionTitle>
+          <p className="max-w-3xl leading-8 text-slate-300">
+            Semiconductor R&D engineer focusing on testing reliability, materials engineering, and system-level optimization.
+          </p>
+        </section>
+
+        <section id="news" className="py-12">
+          <SectionTitle>Latest News</SectionTitle>
+          <div className="space-y-4">
+            {news.map((n, i) => (
+              <Card key={i} className="border-slate-800 bg-slate-900">
+                <CardContent className="flex gap-4 p-4">
+                  <IconBadge label={n.date} />
+                  <p className="text-slate-300">{n.content}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section id="projects" className="py-12">
+          <div className="mb-6 flex flex-col justify-between gap-3 md:flex-row md:items-end">
+            <div>
+              <SectionTitle>Projects</SectionTitle>
+              <p className="max-w-3xl text-slate-400">
+                Selected technical projects connecting semiconductor testing, reliability engineering, materials science, and data-driven optimization.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-[0.9fr_1.4fr]">
+            <div className="space-y-4">
+              {projects.map((project, index) => {
+                const isActive = activeProject.id === project.id;
+                return (
+                  <button
+                    key={project.id}
+                    type="button"
+                    onClick={() => setSelectedProject(project)}
+                    className={`w-full rounded-3xl border text-left transition ${
+                      isActive
+                        ? "border-cyan-300/50 bg-cyan-300/10"
+                        : "border-slate-800 bg-slate-900 hover:border-slate-600"
+                    }`}
+                  >
+                    <div className="p-5">
+                      <div className="mb-3 flex items-center gap-3">
+                        <IconBadge label={`0${index + 1}`} />
+                        <p className="text-xs uppercase tracking-[0.18em] text-cyan-300">{project.category}</p>
+                      </div>
+                      <p className="font-semibold text-slate-100">{project.title}</p>
+                      <p className="mt-2 text-sm leading-6 text-slate-400">{project.desc}</p>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            <motion.div
+              key={activeProject.id}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              <Card className="rounded-3xl border-slate-800 bg-slate-900/80 shadow-2xl">
+                <CardContent className="space-y-8 p-6 md:p-8">
+                  <div>
+                    <p className="mb-2 text-sm uppercase tracking-[0.22em] text-cyan-300">Project Detail</p>
+                    <h3 className="text-2xl font-bold text-slate-100 md:text-3xl">{activeProject.title}</h3>
+                    <p className="mt-3 text-slate-400">{activeProject.category}</p>
+                  </div>
+
+                  <DetailBlock title="Problem / Challenge">
+                    <p>{activeProject.challenge}</p>
+                  </DetailBlock>
+
+                  <DetailBlock title="Approach">
+                    <ul className="space-y-2">
+                      {activeProject.approach.map((item) => (
+                        <li key={item} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </DetailBlock>
+
+                  <DetailBlock title="Impact">
+                    <ul className="space-y-2">
+                      {activeProject.impact.map((item) => (
+                        <li key={item} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </DetailBlock>
+
+                  <DetailBlock title="Skills / Keywords">
+                    <div className="flex flex-wrap gap-2">
+                      {activeProject.skills.map((skill) => (
+                        <span key={skill} className="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </DetailBlock>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="blog" className="py-12">
+          <SectionTitle>Insights & Life</SectionTitle>
+          <div className="grid gap-4 md:grid-cols-2">
+            {blog.map((b) => (
+              <Card key={b.title} className="border-slate-800 bg-slate-900">
+                <CardContent className="p-5">
+                  <p className="mb-1 text-xs text-cyan-300">{b.type}</p>
+                  <p className="font-semibold">{b.title}</p>
+                  <p className="text-sm text-slate-400">{b.preview}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="py-12">
+          <SectionTitle>Contact</SectionTitle>
+          <div className="space-y-2 text-slate-300">
+            <p><a className="text-cyan-200 hover:text-cyan-100" href={`mailto:${contactLinks.personalEmail}`}>{contactLinks.personalEmail}</a></p>
+            <p><a className="text-cyan-200 hover:text-cyan-100" href={`mailto:${contactLinks.stanfordEmail}`}>{contactLinks.stanfordEmail}</a></p>
+            <p><a className="text-cyan-200 hover:text-cyan-100" href={`mailto:${contactLinks.workEmail}`}>{contactLinks.workEmail}</a></p>
+            <div className="flex gap-4 pt-3">
+              <a className="text-cyan-200 hover:text-cyan-100" href={contactLinks.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+              <a className="text-cyan-200 hover:text-cyan-100" href={contactLinks.googleScholar} target="_blank" rel="noreferrer">Google Scholar</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
