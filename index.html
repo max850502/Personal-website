@@ -1,81 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yu-Chuan Hao</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yu-Chuan Hao — Semiconductor R&D engineer working across advanced testing, reliability engineering, materials science, and data-driven optimization." />
+  <title>Yu-Chuan Hao | Semiconductor R&D Engineer</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .glass { background: rgba(15, 23, 42, 0.72); backdrop-filter: blur(16px); }
+    .project-card.active { border-color: rgba(34, 211, 238, 0.75); background: rgba(8, 145, 178, 0.16); }
+  </style>
 </head>
-<body class="bg-black text-white p-6">
-
-  <h1 class="text-3xl font-bold mb-6">Yu-Chuan Hao</h1>
-
-  <h2 class="text-xl mb-4">Projects</h2>
-
-  <div class="grid md:grid-cols-2 gap-4">
-
-    <!-- Left: Project List -->
-    <div id="project-list"></div>
-
-    <!-- Right: Detail -->
-    <div class="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-      <h3 id="title" class="font-bold mb-2"></h3>
-      <p id="challenge"></p>
-      <div id="approach" class="mt-2"></div>
-      <div id="impact" class="mt-2"></div>
-    </div>
-
+<body class="bg-slate-950 text-slate-100">
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute left-[-10%] top-[-10%] h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl"></div>
+    <div class="absolute right-[-10%] top-[20%] h-96 w-96 rounded-full bg-blue-500/10 blur-3xl"></div>
+    <div class="absolute bottom-[-10%] left-[20%] h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl"></div>
   </div>
 
-  <h2 class="text-xl mt-8 mb-4">Contact</h2>
-  <p>max850502@gmail.com</p>
-  <p>maxhao@stanford.edu</p>
-  <p>ychaoc@tsmc.com</p>
+  <header class="sticky top-0 z-50 border-b border-slate-800/80 glass">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="#home" class="font-semibold tracking-wide text-white">Yu-Chuan Hao</a>
+      <nav class="hidden gap-6 text-sm text-slate-300 md:flex">
+        <a href="#about" class="hover:text-cyan-300">About</a>
+        <a href="#news" class="hover:text-cyan-300">News</a>
+        <a href="#projects" class="hover:text-cyan-300">Projects</a>
+        <a href="#research" class="hover:text-cyan-300">Research</a>
+        <a href="#life" class="hover:text-cyan-300">Life</a>
+        <a href="#contact" class="hover:text-cyan-300">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<script>
+  <main class="mx-auto max-w-6xl px-6">
+    <section id="home" class="grid min-h-[78vh] items-center gap-10 py-20 md:grid-cols-[1.25fr_0.75fr]">
+      <div>
+        <p class="mb-4 text-sm uppercase tracking-[0.32em] text-cyan-300">Semiconductor · Materials · Reliability</p>
+        <h1 class="text-4xl font-bold leading-tight text-white md:text-6xl">
+          Yu-Chuan Hao
+          <span class="mt-3 block text-slate-300">Semiconductor R&D Engineer</span>
+        </h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+          I work at the intersection of advanced semiconductor testing, system-level reliability,
+          materials/interface engineering, and data-driven optimization. My work connects practical
+          manufacturing challenges with research-driven engineering solutions.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#projects" class="rounded-2xl bg-cyan-400 px-5 py-3 font-semibold text-slate-950 hover:bg-cyan-300">View Projects</a>
+          <a href="#contact" class="rounded-2xl border border-slate-600 px-5 py-3 font-semibold text-slate-100 hover:border-cyan-300 hover:text-cyan-300">Contact Me</a>
+        </div>
+      </div>
 
-const projects = [
-  {
-    title: "Probe Card Optimization",
-    desc: "Improved probe yield by 70%",
-    challenge: "Probe stability and alignment issues",
-    approach: ["Data analysis", "Pattern detection"],
-    impact: ["Yield improvement", "Faster tuning"]
-  },
-  {
-    title: "Nanotwinned Ag",
-    desc: "Thin film research",
-    challenge: "Thermal stability",
-    approach: ["SEM", "XRD"],
-    impact: ["Mechanism discovery"]
-  }
-];
+      <aside class="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-2xl">
+        <p class="mb-5 text-sm uppercase tracking-[0.25em] text-cyan-300">Profile</p>
+        <div class="space-y-5">
+          <div>
+            <p class="font-semibold text-white">Stanford University</p>
+            <p class="text-sm text-slate-400">Incoming M.S. student, Electrical Engineering</p>
+          </div>
+          <div>
+            <p class="font-semibold text-white">TSMC</p>
+            <p class="text-sm text-slate-400">Semiconductor testing and reliability engineering</p>
+          </div>
+          <div>
+            <p class="font-semibold text-white">Research Focus</p>
+            <p class="text-sm text-slate-400">Nanotwinned metals, thin films, plasma-enabled interfaces</p>
+          </div>
+          <div>
+            <p class="font-semibold text-white">Location</p>
+            <p class="text-sm text-slate-400">Taiwan · Bay Area</p>
+          </div>
+        </div>
+      </aside>
+    </section>
 
-const list = document.getElementById("project-list");
+    <section id="about" class="py-16">
+      <p class="mb-3 text-sm uppercase tracking-[0.25em] text-cyan-300">About</p>
+      <h2 class="mb-6 text-3xl font-bold text-white">Bridging semiconductor engineering and materials research.</h2>
+      <div class="grid gap-6 md:grid-cols-[1fr_1fr]">
+        <p class="leading-8 text-slate-300">
+          My background combines materials science, semiconductor testing, reliability engineering,
+          and applied data analysis. I received my B.S. in Materials Science and Engineering from
+          National Dong Hwa University and my M.S. in Engineering and System Science from National
+          Tsing Hua University.
+        </p>
+        <p class="leading-8 text-slate-300">
+          My long-term direction is to develop technologies that improve semiconductor test interfaces,
+          power delivery stability, probe-card reliability, and advanced packaging performance through
+          materials innovation and data-driven engineering.
+        </p>
+      </div>
+    </section>
 
-function renderDetail(p) {
-  document.getElementById("title").innerText = p.title;
-  document.getElementById("challenge").innerText = p.challenge;
-  document.getElementById("approach").innerHTML = p.approach.map(a => "- " + a).join("<br>");
-  document.getElementById("impact").innerHTML = p.impact.map(i => "- " + i).join("<br>");
-}
+    <section id="news" class="py-16">
+      <p class="mb-3 text-sm uppercase tracking-[0.25em] text-cyan-300">Latest News</p>
+      <h2 class="mb-6 text-3xl font-bold text-white">Updates</h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-5">
+          <p class="text-sm text-cyan-300">2026</p>
+          <p class="mt-2 font-semibold text-white">Admitted to Stanford EE</p>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Incoming M.S. student in Electrical Engineering through Stanford's HCP pathway.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-5">
+          <p class="text-sm text-cyan-300">2026</p>
+          <p class="mt-2 font-semibold text-white">Advanced thin-film research</p>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Continuing research on nanotwinned metallic films and thermal stability mechanisms.</p>
+        </div>
+      </div>
+    </section>
 
-projects.forEach((p, i) => {
-  const div = document.createElement("div");
-  div.className = "rounded-2xl border border-slate-800 bg-slate-900 p-5 mb-3";
-  div.innerHTML = `
-    <p class="font-bold">${p.title}</p>
-    <p class="text-gray-400">${p.desc}</p>
-    <button class="mt-2 text-cyan-400">View</button>
-  `;
+    <section id="projects" class="py-16">
+      <p class="mb-3 text-sm uppercase tracking-[0.25em] text-cyan-300">Projects</p>
+      <h2 class="mb-4 text-3xl font-bold text-white">Selected Technical Projects</h2>
+      <p class="mb-8 max-w-3xl leading-7 text-slate-400">
+        These projects reflect my work across semiconductor testing, probe-card reliability, materials science,
+        and engineering analytics. Click a project to view the detail.
+      </p>
 
-  div.querySelector("button").onclick = () => renderDetail(p);
-  list.appendChild(div);
-});
+      <div class="grid gap-6 lg:grid-cols-[0.9fr_1.35fr]">
+        <div id="project-list" class="space-y-4"></div>
 
-renderDetail(projects[0]);
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-2xl">
+          <p class="mb-2 text-sm uppercase tracking-[0.22em] text-cyan-300">Project Detail</p>
+          <h3 id="project-title" class="text-2xl font-bold text-white"></h3>
+          <p id="project-category" class="mt-2 text-sm text-slate-400"></p>
 
-</script>
+          <div class="mt-8 space-y-7">
+            <div>
+              <p class="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">Problem / Challenge</p>
+              <p id="project-challenge" class="leading-7 text-slate-300"></p>
+            </div>
+            <div>
+              <p class="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">Approach</p>
+              <ul id="project-approach" class="space-y-2 leading-7 text-slate-300"></ul>
+            </div>
+            <div>
+              <p class="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">Impact</p>
+              <ul id="project-impact" class="space-y-2 leading-7 text-slate-300"></ul>
+            </div>
+            <div>
+              <p class="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">Skills / Keywords</p>
+              <div id="project-skills" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="research" class="py-16">
+      <p class="mb-3 text-sm uppercase tracking-[0.25em] text-cyan-300">Research</p>
+      <h2 class="mb-6 text-3xl font-bold text-white">Selected Research Themes</h2>
+      <div class="grid gap-4 md:grid-cols-3">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-5">
+          <p class="font-semibold text-white">Nanotwinned Metallic Films</p>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Thermal stability, grain-boundary migration, texture evolution, and interface-controlled microstructure.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-5">
+          <p class="font-semibold text-white">Plasma-Enabled Interfaces</p>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Surface modification, interface engineering, and functional materials for electronic and energy applications.</p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-5">
+          <p class="font-semibold text-white">Semiconductor Reliability</p>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Probe-card performance, contact stability, test yield, and manufacturing-oriented reliability engineering.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="life" class="py-16">
+      <p class="mb-3 text-sm uppercase tracking-[0.25em] text-cyan-300">Insights & Life</p>
+      <h2 class="mb-6 text-3xl font-bold text-white">Personal Notes</h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        <article class="rounded-3xl border border-slate-800 bg-slate-900/80 p-5">
+          <p class="text-xs uppercase tracking-[0.18em] text-cyan-300">Personal</p>
+          <h3 class="mt-3 font-semibold text-white">Why I chose Stanford EE</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Reflections on engineering growth, long-term direction, and building a stronger foundation in electrical engineering.</p>
+        </article>
+        <article class="rounded-3xl border border-slate-800 bg-slate-900/80 p-5">
+          <p class="text-xs uppercase tracking-[0.18em] text-cyan-300">Family</p>
+          <h3 class="mt-3 font-semibold text-white">Life between Taiwan and the Bay Area</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Notes on family, transition, learning, and building a meaningful life across cultures and careers.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16">
+      <p class="mb-3 text-sm uppercase tracking-[0.25em] text-cyan-300">Contact</p>
+      <h2 class="mb-6 text-3xl font-bold text-white">Get in touch</h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-5">
+          <p class="mb-3 font-semibold text-white">Email</p>
+          <div class="space-y-2 text-slate-300">
+            <p><a class="text-cyan-300 hover:text-cyan-200" href="mailto:max850502@gmail.com">max850502@gmail.com</a></p>
+            <p><a class="text-cyan-300 hover:text-cyan-200" href="mailto:maxhao@stanford.edu">maxhao@stanford.edu</a></p>
+            <p><a class="text-cyan-300 hover:text-cyan-200" href="mailto:ychaoc@tsmc.com">ychaoc@tsmc.com</a></p>
+          </div>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-5">
+          <p class="mb-3 font-semibold text-white">Profiles</p>
+          <div class="flex flex-wrap gap-3">
+            <a class="rounded-2xl border border-slate-700 px-4 py-2 text-cyan-300 hover:border-cyan-300" href="https://www.linkedin.com/in/yuchuanhao/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="rounded-2xl border border-slate-700 px-4 py-2 text-cyan-300 hover:border-cyan-300" href="https://scholar.google.com/citations?user=YOpk9hUAAAAJ&hl=zh-TW" target="_blank" rel="noreferrer">Google Scholar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 py-8 text-center text-sm text-slate-500">
+    © 2026 Yu-Chuan Hao. Built for research, engineering, and personal reflection.
+  </footer>
+
+  <script>
+    const projects = [
+      {
+        title: "Probe Card Optimization Tool",
+        category: "Semiconductor Testing · Data Engineering",
+        desc: "Improved probe yield through data-driven compensation and engineering analysis.",
+        challenge: "Advanced wafer probing requires tight control of contact stability, probe mark quality, touchdown accuracy, and product-specific card behavior. Manual tuning can be time-consuming and difficult to scale across multiple product lines.",
+        approach: [
+          "Built a Python-based analysis workflow for probe-card and wafer-level test data.",
+          "Used historical test behavior to identify contact-depth and alignment-related patterns.",
+          "Connected engineering parameters with practical probe-card readiness decisions."
+        ],
+        impact: [
+          "Improved probe yield in the reported deployment context.",
+          "Supported faster decision-making for probe-card tuning and validation.",
+          "Demonstrated the value of combining semiconductor domain knowledge with data-driven engineering."
+        ],
+        skills: ["Python", "Semiconductor testing", "Yield analysis", "Probe card", "Reliability engineering"]
+      },
+      {
+        title: "Nanotwinned Ag Thin Film Study",
+        category: "Materials Science · Thin Films",
+        desc: "Studied thermal stability and microstructural evolution in nanotwinned Ag thin films.",
+        challenge: "Nanotwinned metallic thin films offer attractive electrical and mechanical properties, but their microstructural stability under annealing is critical for practical device integration.",
+        approach: [
+          "Analyzed annealing-induced microstructural evolution in highly oriented nanotwinned Ag films.",
+          "Studied grain-boundary migration, interfacial-layer evolution, and texture stability.",
+          "Integrated SEM/FIB, XRD, and microscopy-based interpretation to connect structure with property evolution."
+        ],
+        impact: [
+          "Clarified the role of downward grain growth in consuming the nanocrystalline interfacial layer.",
+          "Provided mechanistic insight into thermal stability of nanotwinned metallic films.",
+          "Supported broader research directions in advanced interconnects and electronic materials."
+        ],
+        skills: ["Nanotwinned metals", "Thin films", "XRD", "SEM/FIB", "Annealing", "Microstructure"]
+      },
+      {
+        title: "CTE Compensation Model",
+        category: "Semiconductor Manufacturing · Thermal-Mechanical Modeling",
+        desc: "Developed thermal deformation compensation logic for wafer probing.",
+        challenge: "Temperature changes during probing can cause mechanical deformation and needle-pad offset, affecting contact quality and wafer-level test stability.",
+        approach: [
+          "Developed a compensation model based on coefficient of thermal expansion behavior.",
+          "Translated thermal-mechanical understanding into practical offset correction rules.",
+          "Created an engineering workflow that could be applied across multiple product lines."
+        ],
+        impact: [
+          "Reduced probing instability related to thermal deformation.",
+          "Improved engineering scalability across high-volume semiconductor testing environments.",
+          "Connected materials/mechanics knowledge with practical manufacturing optimization."
+        ],
+        skills: ["CTE", "Thermal deformation", "Probe alignment", "Manufacturing optimization", "Python"]
+      }
+    ];
+
+    const list = document.getElementById("project-list");
+    const title = document.getElementById("project-title");
+    const category = document.getElementById("project-category");
+    const challenge = document.getElementById("project-challenge");
+    const approach = document.getElementById("project-approach");
+    const impact = document.getElementById("project-impact");
+    const skills = document.getElementById("project-skills");
+
+    function renderProject(project, index) {
+      title.textContent = project.title;
+      category.textContent = project.category;
+      challenge.textContent = project.challenge;
+      approach.innerHTML = project.approach.map(item => `<li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 rounded-full bg-cyan-300"></span><span>${item}</span></li>`).join("");
+      impact.innerHTML = project.impact.map(item => `<li class="flex gap-3"><span class="mt-3 h-1.5 w-1.5 rounded-full bg-cyan-300"></span><span>${item}</span></li>`).join("");
+      skills.innerHTML = project.skills.map(skill => `<span class="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300">${skill}</span>`).join("");
+
+      document.querySelectorAll(".project-card").forEach((card, cardIndex) => {
+        card.classList.toggle("active", cardIndex === index);
+      });
+    }
+
+    projects.forEach((project, index) => {
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "project-card w-full rounded-3xl border border-slate-800 bg-slate-900/80 p-5 text-left transition hover:border-cyan-300/50";
+      card.innerHTML = `
+        <p class="mb-2 text-xs uppercase tracking-[0.18em] text-cyan-300">${project.category}</p>
+        <h3 class="font-semibold text-white">${project.title}</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-400">${project.desc}</p>
+      `;
+      card.addEventListener("click", () => renderProject(project, index));
+      list.appendChild(card);
+    });
+
+    renderProject(projects[0], 0);
+  </script>
 </body>
 </html>
